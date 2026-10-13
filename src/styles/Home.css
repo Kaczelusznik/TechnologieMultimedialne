@@ -1,0 +1,4 @@
+/* Równa siatka zadań, dopasowana do szerokości ekranu. */
+.task-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 100%));
+}
