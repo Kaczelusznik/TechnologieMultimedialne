@@ -1,21 +1,44 @@
-# Technologie Multimedialne
+# Technologie Multimedialne — Templatka
 
-React + TypeScript + Bootstrap — prosty projekt na 12 zadań.
+Projekt aplikacji webowej realizowany w ramach laboratoriów z przedmiotu **Technologie Multimedialne** na Politechnice Bydgoskiej.
 
-## Uruchomienie
+## Stack technologiczny
 
-```bash
-npm install
-npm run dev
-```
+- **Frontend:** React, TypeScript, Vite
+- **UI:** Bootstrap 5, CSS
+- **Backend:** Python, FastAPI
+- **Baza danych:** PostgreSQL
+- **Hosting:** Railway
+- **Konteneryzacja:** Docker
 
-## Gdzie co zmieniać?
+## Funkcjonalności
 
-- `src/pages/Home.tsx` — tekst i przyciski na stronie głównej.
-- `src/styles/Home.css` — ułożenie przycisków.
-- `src/styles/shared.css` — czcionka Doto, tło i wspólny wygląd przycisków.
-- `src/pages/Tasks/` — osobne podstrony zadań.
-- `src/App.tsx` — adresy `/z1` do `/z12`.
-- `src/components/Vine.tsx` — opcjonalny animowany napis (teraz nieużywany).
+Projekt podzielony jest na trzy etapy:
 
-Docker i Caddy są przygotowane na późniejszy deployment do Railway.
+### Z1 — Rejestracja i logowanie
+- Rejestracja użytkowników
+- Logowanie i wylogowanie
+- Obsługa sesji
+- Integracja z PostgreSQL
+
+### Z2 — Bootstrap
+- Responsywny interfejs użytkownika
+- Navbar, footer i podstrony
+- Przełączanie motywu jasnego i ciemnego
+- Integracja z systemem logowania
+
+### Z3 — Geolokalizacja i logi
+- Rejestrowanie wizyt użytkowników
+- Historia logowania
+- Geolokalizacja
+- Podgląd historii wizyt w panelu
+
+## Struktura projektu
+
+Każde zadanie (`z1`, `z2`, `z3`) stanowi kolejny etap rozwoju aplikacji i korzysta z osobnej bazy danych PostgreSQL.
+
+## Autor
+
+Daniel Abramek  
+Politechnika Bydgoska  
+Informatyka Stosowana
