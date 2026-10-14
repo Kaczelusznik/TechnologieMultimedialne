@@ -2,6 +2,10 @@ from fastapi import FastAPI
 import os 
 from sqlalchemy import create_engine, text
 
+from fastapi import HTTPException
+from pydantic import BaseModel
+from pwdlib import PasswordHash
+from sqlalchemy.exc import IntegrityError
 
 app = FastAPI()
 
@@ -23,3 +27,31 @@ def test_database():
         connection.execute(text("SELECT 1"))
 
     return {"message": "PostgreSQL działa!"}
+
+hash = PasswordHash.recommended()
+
+class UserRegistration(BaseModel):
+    login: str
+    password: str
+
+@app.post("/register")
+def register_user(user: UserRegistration):
+    hashed_password = hash.hash(user.password)
+
+    try:
+        with engine.begin() as connection:
+            connection.execute(
+                text("""
+                    INSERT INTO users (login, password_hash)
+                    VALUES (:login, :password)
+                """),
+                {"login": user.login, "password": hashed_password}
+            )
+
+    except IntegrityError:
+        raise HTTPException(
+            status_code=409,
+            detail="Użytkownik o podanym loginie już istnieje."
+        )
+
+    return {"message": "Rejestracja zakończona sukcesem!"}
