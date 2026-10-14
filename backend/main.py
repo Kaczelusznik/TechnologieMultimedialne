@@ -17,7 +17,7 @@ engine = create_engine(database_url)
 def home():
     return {"message": "Hello Print{\"World\"}!"}
 
-@app.get("/")
+@app.get("/db-test")
 def test_database():
     with engine.connect() as connection:
         connection.execute(text("SELECT 1"))
