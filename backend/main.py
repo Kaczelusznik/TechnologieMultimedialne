@@ -55,3 +55,19 @@ def register_user(user: UserRegistration):
         )
 
     return {"message": "Rejestracja zakończona sukcesem!"}
+
+@app.post("/login")
+def login_user(user: UserRegistration):
+    with engine.connect() as connection:
+        result = connection.execute(
+            text("SELECT password_hash FROM users WHERE login = :login"),
+            {"login": user.login}
+        ).first()
+
+    if not result or not hash.verify(user.password, result[0]):
+        raise HTTPException(
+            status_code=401,
+            detail="Nieprawidłowy login lub hasło"
+        )
+
+    return {"message": "Dane logowania poprawne!"}
