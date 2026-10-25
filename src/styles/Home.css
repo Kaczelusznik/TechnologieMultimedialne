@@ -1,0 +1,85 @@
+/* Styl tylko dla strony głównej. */
+.home {
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(24px, 5vw, 70px) 24px 30px;
+}
+
+.home-header {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.home-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: #b5ff4d;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.home h1 {
+  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  line-height: 1.06;
+  font-weight: 900;
+  color: #b5ff4d;
+}
+
+.home-header p {
+  margin-top: 16px;
+  color: #bcbcbc;
+  font-size: 1.15rem;
+  font-weight: 650;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1120px;
+  margin: 42px auto 20px;
+}
+
+.task-card {
+  display: flex;
+  align-items: flex-end;
+  min-height: 135px;
+  padding: 22px 24px;
+  border: 1px solid #4e6840;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 11px, #ffffff08 11px 13px),
+    #222522;
+  color: #f2f2ee;
+  font-size: 1.6rem;
+  font-weight: 850;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.task-card:hover,
+.task-card:focus-visible {
+  color: #b5ff4d;
+  border-color: #b5ff4d;
+  background-color: #2d3927;
+  transform: translateY(-3px);
+}
+
+.task-card:focus-visible {
+  outline: 2px solid #b5ff4d;
+  outline-offset: 3px;
+}
+
+@media (max-width: 800px) {
+  .task-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .task-grid { grid-template-columns: 1fr; }
+  .task-card { min-height: 90px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .task-card { transition: none; }
+}

@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap");
+@import "tailwindcss";
+
+/* Style wspólne dla wszystkich zadań. */
+:root {
+  font-family: "Doto", monospace;
+  color: #f0f0ec;
+  background-color: #151515;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Doto", monospace;
+  color: #f0f0ec;
+  background:
+    radial-gradient(circle at 25% 25%, #2c2c2c 0, transparent 35%),
+    radial-gradient(circle at 75% 25%, #2a2a2a 0, transparent 35%),
+    radial-gradient(circle at 25% 75%, #292929 0, transparent 35%),
+    radial-gradient(circle at 75% 75%, #2c2c2c 0, transparent 35%),
+    #151515;
+  background-attachment: fixed;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
