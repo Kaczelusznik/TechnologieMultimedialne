@@ -128,6 +128,7 @@ export default function Task1() {
             {isRegistering && (
               <input
                 type="password"
+                className="w-full rounded-lg border border-neutral-500 bg-neutral-900 px-4 py-3 text-center text-white focus:border-lime-400 focus:outline-none"
                 placeholder="Powtórz hasło"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
