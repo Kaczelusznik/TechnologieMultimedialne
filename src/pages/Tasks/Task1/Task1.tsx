@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Task1() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
 
@@ -17,6 +18,12 @@ export default function Task1() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    // Walidacja haseł przy rejestracji
+    if (isRegistering && password !== confirmPassword) {
+      alert("Hasła nie są takie same!");
+      return;
+    }
 
     try {
       const response = await fetch(
@@ -117,6 +124,16 @@ export default function Task1() {
               onChange={(event) => setPassword(event.target.value)}
               required
             />
+
+            {isRegistering && (
+              <input
+                type="password"
+                placeholder="Powtórz hasło"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+              />
+            )}
 
             <button
               type="submit"
